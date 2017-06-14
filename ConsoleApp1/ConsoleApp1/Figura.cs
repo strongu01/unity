@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +8,20 @@ namespace Aplikacja1.Figury
 {
     class Figura
     {
+        protected delegate void ZmianaPozycji();
+        protected event ZmianaPozycji OnZmianaPozycji;
+
         protected Pozycja pozycja = null;
-        protected Pozycja Pozycja
+        public Pozycja Pozycja
         {
             get
             {
                 return pozycja;
+            }
+            set
+            {
+                pozycja = value;
+                OnZmianaPozycji();
             }
         }
 
@@ -41,8 +49,14 @@ namespace Aplikacja1.Figury
 
         public Figura(Pozycja pozycja, string kolor)
         {
+            OnZmianaPozycji += PozycjaZmieniona;
             this.pozycja = pozycja;
             this.kolor = kolor;
+        }
+
+        private void PozycjaZmieniona()
+        {
+            Console.WriteLine("Pozycja zmieniona\nNowa pozycja X: " + pozycja.X + "\nNowa pozycja Y: " + pozycja.Y);
         }
     }
 }
