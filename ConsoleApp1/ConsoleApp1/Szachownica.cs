@@ -8,11 +8,23 @@ namespace Aplikacja1.Figury
 {
     class Szachownica
     {
+        private static Szachownica szachow = new Szachownica();
+
         private string[,] plansza;
 
-        public Szachownica()
+        private Szachownica()
         {
             plansza = new string[8, 8];
+        }
+
+        static Szachownica() { }
+
+        public static Szachownica Instancja
+        {
+            get
+            {
+                return szachow;
+            }
         }
 
         public string this[char x, int y]
