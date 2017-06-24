@@ -1,0 +1,33 @@
+class Figura:
+  "Klasa abstrakcyjna przechowująca figurę"
+  kolor = None
+  pozycja = None
+
+  def __init__(self, kolor, pozycja):
+    self.kolor=kolor
+    self.pozycja=pozycja
+
+class Goniec(Figura):
+  "Klasa przechowująca gońca"
+  
+class Pion(Figura):
+  "Klasa przechowująca Pion"
+  
+class Krolowa(Figura):
+  "Klasa przechowująca Królową"
+  
+f = Figura("biały", "I4")
+print(f.kolor)
+print(f.pozycja)
+
+f = Goniec("czarny", "C6")
+print(f.kolor)
+print(f.pozycja)
+
+f = Pionek("biały", "G9")
+print(f.kolor)
+print(f.pozycja)
+
+f = Krolowa("czarny", "D8")
+print(f.kolor)
+print(f.pozycja)
